@@ -219,6 +219,43 @@ Agents report results in a structured format:
 ╚════════════════════════════════════════════════════════════╝
 ```
 
+## When to Use Quotient Tests
+
+Quotient tests shine in scenarios where traditional testing becomes impractical or insufficient:
+
+### Use Quotient Tests For
+
+- **User journey validation** - Testing complete workflows from the user's perspective (e.g., "user can sign up, configure their profile, and make their first purchase")
+- **Qualitative UX assessment** - Evaluating subjective criteria like "friendly error messages" or "intuitive navigation"
+- **Cross-cutting concerns** - Testing behaviors that span multiple components or services
+- **Accessibility and usability** - Verifying that interfaces are understandable and usable
+- **Edge cases in user behavior** - Scenarios that are hard to anticipate and codify in traditional tests
+- **Rapid prototyping validation** - Quick sanity checks during early development before investing in comprehensive test suites
+- **Documentation as tests** - When your acceptance criteria are already written in natural language
+
+### Don't Use Quotient Tests For
+
+- **Performance benchmarks** - Use dedicated performance testing tools for measuring response times, throughput, or resource usage
+- **Precise numerical validation** - When you need exact values (e.g., "calculate 15% tax on $100.00 equals $15.00 exactly")
+- **Regression testing of specific bugs** - Unit tests with explicit assertions are better for preventing known bugs from returning
+- **API contract testing** - Schema validation and contract tests are more appropriate for API correctness
+- **Security vulnerability scanning** - Use specialized security tools, not AI interpretation
+- **High-frequency test runs** - Quotient tests involve AI inference, making them slower and more expensive than traditional tests
+- **Deterministic requirements** - When outcomes must be 100% reproducible with no interpretation needed
+
+### The Sweet Spot
+
+Quotient tests work best as a **complement** to your existing test suite:
+
+```
+Unit Tests          → Logic correctness, edge cases, fast feedback
+Integration Tests   → Component interactions, API contracts
+E2E Tests           → Critical user paths, smoke tests
+Quotient Tests      → Holistic UX, qualitative outcomes, user intent
+```
+
+Think of quotient tests as the "does this actually make sense to a human?" layer that sits above your technical test pyramid.
+
 ## Comparison with Traditional Testing
 
 | Aspect | Unit/E2E Tests | Quotient Tests |

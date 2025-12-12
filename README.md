@@ -1,6 +1,8 @@
 # quotient
 A framework for AI testing.
 
+> **[TLDR: Quickstart for pros →](TLDR.md)**
+
 ## Premise
 
 Unit tests are great, E2E tests useful.

@@ -17,7 +17,7 @@ But now we have coding agents that can perform such tasks.
 
 What would such a test look like? 
 ```
-If a user is not logged in and tries to acces a secure feature they should restricted to login with a friendly message.
+If a user is not logged in and tries to acces a secure feature they should redirected to login with a friendly message.
 ```
 So, while there are several unit tests that can validate the elements of UI and IO within that process...the overreaching test is intractable without more intellect. 
 
@@ -38,7 +38,7 @@ A quotient test file contains one or more test cases written as clear, actionabl
 If a user is not logged in and tries to access a secure feature, they should be restricted and redirected to login with a friendly message.
 
 ## Test: Session persistence
-When a user logs in and later returns to the application, their session should be restored and they should not need to log in again.
+When a user logs in and later (less the 3 days) returns to the application, their session should be restored and they should not need to log in again.
 
 ## Test: Failed login feedback
 If a user enters incorrect credentials, they should see a clear error message and be given the opportunity to try again or reset their password.
@@ -48,6 +48,7 @@ If a user enters incorrect credentials, they should see a clear error message an
 
 Each test consists of:
 
+0. **Feature** - A blurb describing the feature being tested
 1. **Context** - The starting conditions (e.g., "user is not logged in")
 2. **Action** - What the user attempts (e.g., "tries to access a secure feature")
 3. **Expectation** - The observable outcome (e.g., "redirected to login with a friendly message")
@@ -73,7 +74,7 @@ Quotient tests are executed by AI coding agents (such as Claude) that can interp
 To direct a coding agent to run quotient tests, provide instructions like:
 
 ```
-Run the quotient tests in the `tests/` directory against the application at [URL or local path].
+Run the quotient tests in the `tests/*.qt.md` directory against the application at [URL or local path].
 
 For each test:
 1. Read and understand the test specification
@@ -143,7 +144,7 @@ jobs:
       - name: Run quotient tests
         run: |
           # Invoke your AI agent with the test prompt
-          claude-code --prompt "Run quotient tests in tests/*.qt.md against http://localhost:3000"
+          claude-code --prompt "Run quotient tests in tests/*.qt.md against the application."
 ```
 
 ## Writing Effective Quotient Tests

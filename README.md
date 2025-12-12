@@ -7,13 +7,13 @@ Unit tests are great, E2E tests useful.
 But both can become heavy-
 we easily get bogged down in the minutia of tests that validate I/O or verify visual effects.
 Ultimately users don't care if an API call responds with specifically formatted data.
-They care, for example, that they clicked and later their saved datA reappears.
+They care, for example, that they clicked and later their saved data reappears.
 They care, for example, that, if they aren't authorized but should be, that they will be guided back to security.
 
 The first example may be within reach of _typical_ unit/E2E testing;
-The second is not- at least not practically. 
+The second is not- at least not practically efficiently. 
 That kind of quality assurance is typically the realm of the human. 
-But now we have coding agents that can perform which tasks. 
+But now we have coding agents that can perform such tasks. 
 
 What would such a test look like? 
 ```
